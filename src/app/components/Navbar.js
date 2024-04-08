@@ -4,8 +4,15 @@ import styles from "../page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useAppSelector } from '@/lib/hooks';
+import { setSearchKey } from '@/lib/features/searchKeySlice';
+import { useDispatch } from 'react-redux';
 function Navbar({searchKey}) {
-  
+    const dispatch = useDispatch();
+
+    const handleInputChange = (e) => {
+      const value = e.target.value;
+      dispatch(setSearchKey(value));
+    };
     const profileData =useAppSelector((state) => state.auth);
     const username = profileData?.user?.username;
     
@@ -24,7 +31,7 @@ function Navbar({searchKey}) {
           priority
         />
       </a>
-          {searchKey? <input type='text' value={searchKey} className={styles.search_input}/> : ""}
+          {searchKey ? <input type='text' value={searchKey}   className={styles.search_input}/> : ""}
 
           {
          username && username ? <div className={styles.welcome}>
