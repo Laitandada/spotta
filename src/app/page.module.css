@@ -32,7 +32,7 @@
   min-height: 10vh;
   margin: 0 auto;
   width: 100%;
-  padding: 10px 60px;
+  padding: 10px 60px 10px 65px;
 }
 .description_bg {
   background: #f2f6fd;
@@ -220,7 +220,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 90%;
+  width: 100%;
   margin: 0rem auto;
 }
 .hero_card_header_container {
@@ -436,7 +436,7 @@
   justify-content: space-between;
   align-items: center;
   background: #f2f6fd;
-  padding: 0px 60px 30px 60px;
+  padding: 0px 60px 30px 84px;
 }
 .review_location_texts {
   display: flex;
@@ -494,11 +494,11 @@
 .carousel {
   position: relative;
   background: #f2f6fd;
-  padding: 0px 60px 30px 60px;
+  padding: 0px 60px 30px 85px;
 }
 
 .carousel_box {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -868,6 +868,7 @@ color: #484851;
   }
   .welcome{
     order: 2;
+    color: transparent;
   }
   .input_description img{
     object-fit: cover;
@@ -879,6 +880,41 @@ color: #484851;
   .create_review_form_buttons_submit{
     padding: 0px;
     font-size: 12px;
+
+  }
+  .home_section{
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+  .home_section_one{
+    width: 100%;
+    margin-top: 0rem;
+  }
+  .home_section_two{
+    display: none;
+  }
+  .main{
+    padding: 0.5rem;
+  }
+  .home_heading{
+    font-family: Inter;
+font-size: 40px;
+font-weight: 700;
+line-height: 48px;
+text-align: left;
+
+  }
+  .home_subHeading{
+    font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 25.6px;
+text-align: left;
+
+  }
+  .home_input{
+    width: 100%;
   }
 }
 

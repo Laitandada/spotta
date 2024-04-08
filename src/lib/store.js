@@ -15,10 +15,12 @@ import {
 
 import storage from "./storage";
 import { authReducer } from "./features/authSlice";
+import { searchKeyReducer } from "./features/searchKeySlice";
 
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  search: searchKeyReducer,
   
 });
 

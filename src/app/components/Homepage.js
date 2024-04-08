@@ -2,7 +2,18 @@ import React from 'react'
 import Image from "next/image";
 import styles from "../page.module.css";
 import Navbar from './Navbar';
+import { useDispatch } from 'react-redux';
+import { setSearchKey } from '@/lib/features/searchKeySlice';
+import Link from 'next/link';
 function Homepage() {
+
+    const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    dispatch(setSearchKey(value));
+  };
+
   return (
     <main className={styles.main}>
       <Navbar/>
@@ -16,9 +27,20 @@ function Homepage() {
             neighbourhood you might have in mind.
           </p>
           <div className={styles.home_input_container}>
-            <input type="text" placeholder='Enter Address' className={styles.home_input} />
+          <input
+        type="text"
+        placeholder="Enter Address"
+        className={styles.home_input}
+        onChange={handleInputChange}
+      />
           </div>
-          <button className={styles.home_button}>Search</button>
+          <Link  href="/reviews"
+     
+              style={{ color: "transparent", textDecoration:"none" }}>
+ <button className={styles.home_button}>Search</button>
+
+          </Link>
+         
         </div>
         <div className={styles.home_section_two}>
           <div className={styles.home_overlay}>
