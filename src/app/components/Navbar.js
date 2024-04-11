@@ -1,18 +1,27 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "../page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useAppSelector } from '@/lib/hooks';
-import { setSearchKey } from '@/lib/features/searchKeySlice';
+import { logOutSearch, setSearchKey } from '@/lib/features/searchKeySlice';
 import { useDispatch } from 'react-redux';
+import { logOutUser } from '@/lib/features/authSlice';
 function Navbar({searchKey}) {
     const dispatch = useDispatch();
-
+const [display, setDisplay ] = useState(false);
     const handleInputChange = (e) => {
       const value = e.target.value;
       dispatch(setSearchKey(value));
     };
+    const handleLogOut = (e) => {
+      setDisplay(!display)
+    };
+    const handleLogOutUser = (e) => {
+    dispatch(logOutUser())
+    dispatch(logOutSearch())
+    };
+
     const profileData =useAppSelector((state) => state.auth);
     const username = profileData?.user?.username;
     
@@ -30,6 +39,7 @@ function Navbar({searchKey}) {
           height={34}
           priority
         />
+        
       </a>
           {searchKey ? <input type='text' value={searchKey}   className={styles.search_input}/> : ""}
 
@@ -43,11 +53,20 @@ function Navbar({searchKey}) {
           width={36}
           height={36}
           priority
+          onClick={handleLogOut}
         />
-         </div>  :  <p className={styles.loginText}>Login</p> 
+
+<div  className={display ? `${styles.logout_dropdown} `  :styles.logout_dropdown_hide}>
+    <p onClick={handleLogOutUser} >Log out</p>
+  </div>
+         </div>  :  <Link  href="/sign-in"
+     
+     style={{ color: "transparent", textDecoration:"none",marginLeft:"auto" }}>
+         <p className={styles.loginText}>Login</p> </Link>
     }
     </div>
-
+    
+ 
 
    
 

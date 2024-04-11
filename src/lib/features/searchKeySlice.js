@@ -21,7 +21,7 @@ const searchKeySlice = createSlice({
     //   state.subscriptionStatus = action.payload;
     // },
 
-    logOutUser: (state) => {
+    logOutSearch: (state) => {
       state.searchKey = null;
       // state.subscriptionStatus = 'inactive'; // Reset the subscription status upon logout
     },
@@ -30,4 +30,4 @@ const searchKeySlice = createSlice({
 
 export const searchKeyReducer = searchKeySlice.reducer;
 
-export const { setSearchKey } = searchKeySlice.actions;
+export const { setSearchKey, logOutSearch } = searchKeySlice.actions;

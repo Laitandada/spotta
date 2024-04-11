@@ -94,6 +94,7 @@
   color: #101012;
   order: 3;
   margin-left: auto;
+  position: relative;
 }
 .code {
   font-weight: 700;
@@ -420,6 +421,31 @@
   color: #1e1e1e;
   margin-top: 1rem;
   display: flex;
+}
+.logout_dropdown{
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: white;
+border-radius: 7px;
+position: absolute;
+top: 40px;
+right: 0px;
+}
+.logout_dropdown_hide{
+  display: none;
+}
+.logout_dropdown p{
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14.52px;
+  text-align: center;
+  color: #1e1e1e!important;
+  text-decoration: none;
+  margin-left: 10px;
 }
 .styles.auth_form_subHeadline_link {
   font-family: Inter;
@@ -926,6 +952,9 @@ text-align: left;
   }
   .home_input{
     width: 100%;
+  }
+  .auth_form_overall{
+    width: 98%;
   }
 }
 
